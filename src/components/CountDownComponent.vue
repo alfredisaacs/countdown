@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      expectedDate: 'Mar 03, 2022 15:37:25',
+      expectedDate: 'Mar 10, 2022 15:37:25',
       countDownDate: null,
       days: '00',
       hours: '00',
@@ -71,10 +71,10 @@ export default {
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        this.fDays = this.addZero(days - 1).toString();
-        this.fHours = this.addZero(hours - 1).toString();
-        this.fMinutes = this.addZero(minutes - 1).toString();
-        this.fSeconds = this.addZero(seconds - 1).toString();
+        this.fDays = days === 0 ? 59 : this.addZero(days - 1).toString();
+        this.fHours = hours === 0 ? 59 :  this.addZero(hours - 1).toString();
+        this.fMinutes = minutes === 0 ? 59 :  this.addZero(minutes - 1).toString();
+        this.fSeconds = seconds === 0 ? 59 :  this.addZero(seconds - 1).toString();
 
         this.days = this.addZero(days).toString();
         this.hours = this.addZero(hours).toString();
